@@ -1,0 +1,33 @@
+pointer to data member
+#include<iostream.h>
+#include<conio.h>
+class cir
+{
+friend void main();
+int r;
+float area;
+void cal();
+ public:
+void get(int x)
+{
+r=x;
+}
+void disp()
+{
+cal();
+cout<<"enter radius="<<area<<endl;
+}
+};
+void cir::cal()
+{
+area=3.14*r*r;
+}
+void main()
+{
+clrscr();
+void (cir::*ptr)(void)=&cir::disp;
+cir obj;
+int cir::*pr= &cir::r;
+obj.*pr=5;
+(obj.*ptr)();
+}
